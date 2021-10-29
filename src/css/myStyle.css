@@ -1,6 +1,11 @@
+.app {
+    text-align: center;
+}
+
 .hello {
-    color: yellow;
+    color: red;
     font-size: 55px;
-    border: 3px solid white;
+    border: 3px solid black;
     padding: 5px 15px;
+    text-align: center;
 }
