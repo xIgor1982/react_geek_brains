@@ -1,7 +1,8 @@
 export default function Message ({message}) {
     return (
-        <div>
-            <span>text: {message.text} </span> : <span>{message.author}</span>
+        <div className='block-style'>
+            <h6>author message: {message.author}</h6>
+            <div>text: {message.text}</div>
         </div>
     )
 }

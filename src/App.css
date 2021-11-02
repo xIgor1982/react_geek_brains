@@ -1,0 +1,11 @@
+.app-component {
+    font-size: 14px;
+}
+
+.block-style {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+}
