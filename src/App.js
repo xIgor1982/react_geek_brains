@@ -3,10 +3,11 @@ import ChatsHeader from "./Components/ChatsHeader";
 import ChatsContent from "./Components/ChatsContent"
 import {useCallback, useEffect, useRef, useState} from "react";
 import {v4 as uuidv4} from "uuid";
+import {ANSWER_BOT, AUTHORS, INITIAL_MESSAGE} from "./data/data";
 
-function App({initialMessages, chatsNameList, AUTHORS, ANSWER_BOT}) {
+function App() {
     //useState
-    const [messages, setMessages] = useState(initialMessages)
+    const [messages, setMessages] = useState(INITIAL_MESSAGE)
 
     //useRef
     const parentRef = useRef()
@@ -35,9 +36,7 @@ function App({initialMessages, chatsNameList, AUTHORS, ANSWER_BOT}) {
             <ChatsHeader/>
             <ChatsContent
                 messages={messages}
-                chatsNameList={chatsNameList}
                 handleSendMessage={handleSendMessage}
-                AUTHORS={AUTHORS}
             />
         </>
     );

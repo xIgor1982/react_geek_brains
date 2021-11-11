@@ -1,9 +1,10 @@
 import {List, ListItem} from "@mui/material";
+import {CHATS_NAME_LIST} from "../../data/data";
 
-const ChatsList = ({chatsNameList}) => {
+const ChatsList = () => {
     return (
         <List>
-            {chatsNameList.map((item, index) => {
+            {CHATS_NAME_LIST.map((item, index) => {
                 return (
                     <ListItem
                         key={item.id}

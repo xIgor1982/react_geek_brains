@@ -3,16 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from "./App";
 import reportWebVitals from './reportWebVitals';
-import {ANSWER_BOT, AUTHORS, CHATS_NAME_LIST, INITIAL_MESSAGE} from "./data/data";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App
-        initialMessages={INITIAL_MESSAGE}
-        chatsNameList={CHATS_NAME_LIST}
-        AUTHORS={AUTHORS}
-        ANSWER_BOT={ANSWER_BOT}
-    />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

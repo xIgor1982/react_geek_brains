@@ -1,9 +1,5 @@
 import {AppBar, Container, IconButton, Toolbar, Typography} from "@mui/material";
 
-function MenuIcon() {
-    return null;
-}
-
 const ChatsHeader = () => {
     return (
         <AppBar  position="sticky" sx={{ mb: 0.5 }}>
@@ -17,7 +13,7 @@ const ChatsHeader = () => {
                             flexGrow: 1
                         }}
                     >
-                        Чаты с глубоким жизненным смыслом
+                        Чаты
                     </Typography>
                 </Container>
             </Toolbar>

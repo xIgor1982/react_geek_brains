@@ -1,8 +1,9 @@
 import {Button, TextField} from "@mui/material";
 import {useRef, useState} from "react";
 import {v4 as uuidv4} from "uuid";
+import {AUTHORS} from "../../data/data";
 
-const MessageCreate = ({AUTHORS, handleSendMessage}) => {
+const MessageCreate = ({handleSendMessage}) => {
     const [value, setValue] = useState('')
     const inputRef = useRef()
 
