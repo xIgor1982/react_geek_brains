@@ -2,6 +2,7 @@ import {Button, TextField} from "@mui/material";
 import {useRef, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {AUTHORS} from "../../data/data";
+import SendIcon from '@mui/icons-material/Send';
 
 const MessageCreate = ({handleSendMessage}) => {
     const [value, setValue] = useState('')
@@ -38,9 +39,11 @@ const MessageCreate = ({handleSendMessage}) => {
                 autoFocus={true}
             />
             <Button
-                variant="contained"
+                variant="outlined"
                 type="submit"
                 sx={{mt: 0.5}}
+                endIcon={<SendIcon />}
+                color='inherit'
             >
                 Отправить
             </Button>
