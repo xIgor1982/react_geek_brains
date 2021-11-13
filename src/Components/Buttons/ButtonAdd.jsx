@@ -1,10 +1,10 @@
 import {Button, TextField} from "@mui/material";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {AUTHORS} from "../../data/data";
 import SendIcon from '@mui/icons-material/Send';
 
-const MessageCreate = ({handleSendMessage}) => {
+const ButtonAdd = ({handleSendMessage, chatId}) => {
     const [value, setValue] = useState('')
     const inputRef = useRef()
 
@@ -24,6 +24,8 @@ const MessageCreate = ({handleSendMessage}) => {
 
         setValue('')
     }
+
+    useEffect(() => inputRef.current?.focus(), [chatId])
 
     return (
         <form onSubmit={handleSubmit}>
@@ -51,4 +53,4 @@ const MessageCreate = ({handleSendMessage}) => {
     )
 }
 
-export default MessageCreate
+export default ButtonAdd
