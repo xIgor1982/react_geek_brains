@@ -1,10 +1,14 @@
 import {Container} from "@mui/material";
-import '../App.css';
+import '../../App.css';
+import {useSelector} from "react-redux";
 
 export const Home = () => {
+    const name = useSelector(state => state.name)
+
     return (
         <Container>
             <h1>Главная страница</h1>
+            <h2>Привет <i style={{color:'red'}}>{name.toUpperCase()}!</i></h2>
             <h2>Оказывается, выбранный нами инновационный путь попахивает безумием</h2>
             <p>А ещё явные признаки победы институционализации превращены в посмешище, хотя само их существование
                 приносит несомненную пользу обществу. Являясь всего лишь частью общей картины, сделанные на базе

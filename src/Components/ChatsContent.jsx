@@ -1,6 +1,5 @@
-import {Container, Grid,  List as MaterialList, ListItem} from "@mui/material";
+import {Container, Grid } from "@mui/material";
 import Messages from "./Message/Messages";
-import {CHATS_LIST} from "../data/data";
 import {Link, NavLink, Route, Routes, useParams} from "react-router-dom";
 import {ChatsList} from "./ChatList/ChatsList";
 
