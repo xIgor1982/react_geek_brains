@@ -1,10 +1,10 @@
-import {Button, TextField} from "@mui/material";
-import {useEffect, useRef, useState} from "react";
-import {v4 as uuidv4} from "uuid";
-import {AUTHORS} from "../../data/data";
+import { Button, TextField } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { AUTHORS } from "../../data/data";
 import SendIcon from '@mui/icons-material/Send';
 
-const ButtonAdd = ({handleSendMessage, chatId}) => {
+const ButtonAdd = ({ handleSendMessage, chatId }) => {
     const [value, setValue] = useState('')
     const inputRef = useRef()
 
@@ -37,13 +37,13 @@ const ButtonAdd = ({handleSendMessage, chatId}) => {
                 value={value}
                 onChange={handleChange}
                 inputRef={inputRef}
-                sx={{mb: 0.5}}
+                sx={{ mb: 0.5 }}
                 autoFocus={true}
             />
             <Button
                 variant="outlined"
                 type="submit"
-                sx={{mt: 0.5}}
+                sx={{ mt: 0.5 }}
                 endIcon={<SendIcon />}
                 color='inherit'
             >

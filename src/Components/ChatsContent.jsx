@@ -1,19 +1,19 @@
-import {Container, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import Messages from "./Message/Messages";
-import {Link, NavLink, Route, Routes, useParams} from "react-router-dom";
-import {ChatsList} from "./ChatList/ChatsList";
+import { useParams } from "react-router-dom";
+import { ChatsList } from "./ChatList/ChatsList";
 
-const ChatsContent = ({messages, handleSendMessage}) => {
+const ChatsContent = ({ messages, handleSendMessage }) => {
     const { chatId } = useParams()
     console.log('chatId =>')
     console.log(chatId)
 
     const colorBlockLinkActive = {
-        color: 'white' ,
+        color: 'white',
         backgroundColor: 'green'
     }
     const colorBlockLinkNotActive = {
-        color: 'black' ,
+        color: 'black',
         backgroundColor: 'white'
     }
 

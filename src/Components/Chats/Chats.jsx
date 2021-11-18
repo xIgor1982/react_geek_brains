@@ -39,6 +39,10 @@ const Chats = () => {
         }
     }, [messages, chatId])
 
+    if (chatId && !messages[chatId]) { 
+        return <Navigate replace to="/chats" />
+    }
+
     return (
         <Container ref={parentRef}>
             <Grid container spacing={2}>
