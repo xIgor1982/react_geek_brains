@@ -1,23 +1,18 @@
-import {CHATS_LIST, MY_STYLE} from "../../data/data";
-import {NavLink} from "react-router-dom";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
+import ChatListItem from "./ChatListItem";
 
-export const ChatsList = () => {
+export const ChatsList = ({ chatList = [], onDelete }) => {
     return (
         <>
             <h3>Список чатов</h3>
             <ul className='link-style-ul'>
-                {CHATS_LIST.map((chat) => (
+                {chatList.map((chat, index) => (
                     <li className='link-style' key={uuidv4()}>
-                        <NavLink
-                            style={({isActive}) =>
-                                (isActive ? MY_STYLE.colorBlockLinkActive : MY_STYLE.colorBlockLinkNotActive)
-                            }
-                            to={`/chats/${chat.id}`}
-                            className='link-style-a'
-                        >
-                            {chat.name}
-                        </NavLink>
+                        <ChatListItem
+                            number={index + 1}
+                            chat={chat}
+                            onDelete={onDelete}
+                        />
                     </li>
                 ))}
             </ul>

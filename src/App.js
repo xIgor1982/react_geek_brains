@@ -10,8 +10,6 @@ import { store } from "./store";
 
 
 function App() {
-
-
     return (
         <Provider store={store}>
             <AppBar position="sticky" color='inherit' sx={{ mb: 0.5 }}>

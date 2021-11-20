@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { AUTHORS } from "../../data/data";
 import SendIcon from '@mui/icons-material/Send';
 
-const ButtonAdd = ({ handleSendMessage, chatId }) => {
+const ButtonAdd = ({ handleAddMessage, chatId }) => {
     const [value, setValue] = useState('')
     const inputRef = useRef()
 
@@ -14,7 +14,7 @@ const ButtonAdd = ({ handleSendMessage, chatId }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleSendMessage({
+        handleAddMessage({
             id: uuidv4(),
             text: value,
             author: AUTHORS.user
