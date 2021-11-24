@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { AUTHORS } from "../../data/data";
 import SendIcon from '@mui/icons-material/Send';
 
-const ButtonAdd = ({ handleAddMessage, chatId }) => {
+const FormAddMessage = ({ onAddMessage, chatId }) => {
     const [value, setValue] = useState('')
     const inputRef = useRef()
 
@@ -14,7 +14,7 @@ const ButtonAdd = ({ handleAddMessage, chatId }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleAddMessage({
+        onAddMessage({
             id: uuidv4(),
             text: value,
             author: AUTHORS.user
@@ -29,12 +29,11 @@ const ButtonAdd = ({ handleAddMessage, chatId }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <TextField
-                id="standard-basic"
-                fullWidth
-                label="Введите сообщение"
+            <TextField 
+                fullWidth 
+                label="Введите сообщение" 
                 variant="standard"
-                value={value}
+                value={value}                 
                 onChange={handleChange}
                 inputRef={inputRef}
                 sx={{ mb: 0.5 }}
@@ -53,4 +52,4 @@ const ButtonAdd = ({ handleAddMessage, chatId }) => {
     )
 }
 
-export default ButtonAdd
+export default FormAddMessage

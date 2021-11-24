@@ -1,4 +1,4 @@
-import {TOGGLE_CHECKBOX} from "./action";
+import { TOGGLE_CHECKBOX } from "../typsStore";
 
 const initialState = {
     checkbox: false,

@@ -1,40 +1,28 @@
 import { Container, Grid } from "@mui/material";
-import { useParams, Navigate } from "react-router-dom";
 import { ChatsList } from "../ChatList/ChatsList";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ANSWER_BOT, AUTHORS, CHATS_LIST_INITIAL, TEXT_FIRST_LOAD, CHATS_LIST } from "../../data/data";
+import { useCallback, useEffect, useRef } from "react";
+import { ANSWER_BOT, AUTHORS, TEXT_FIRST_LOAD } from "../../data/data";
 import { v4 as uuidv4 } from "uuid";
-import Messages from "../Message/Messages";
+import { selectorMessages } from '../../store/messages/selectors'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import FormAddMessage from "../FormAddMessage/FormAddMessage";
+import MessagesList from "../Message/MessagesList";
+import { addMessage } from '../../store/messages/actions'
+import { Navigate, useParams } from "react-router";
 
 const Chats = () => {
     const { chatId } = useParams()
-    const [messages, setMessages] = useState(CHATS_LIST_INITIAL)
-    const [chatList, setChatList] = useState(CHATS_LIST)
-    const parentRef = useRef()
+
+    const messages = useSelector(selectorMessages)
+    const dispatch = useDispatch()
 
     const handleAddMessage = useCallback(
         (newMessage) => {
-            setMessages((prevMessage) => ({
-                ...prevMessage,
-                [chatId]: [...prevMessage[chatId], newMessage]
-            }))
+            dispatch(addMessage(chatId, newMessage))
         },
         [chatId]
     )
-
-    const handleDeleteChats = useCallback((idToDelete) => {
-        setChatList(
-            (prevChatList) => {
-                prevChatList.filter(({ id }) => id !== idToDelete)
-            })
-        setMessages((prevMessages) => {
-            const newMessages = {...prevMessages}
-            delete newMessages[idToDelete]
-
-            return newMessages
-        })
-    }, [])
-
 
     useEffect(() => {
         if (
@@ -52,33 +40,29 @@ const Chats = () => {
             )
             return () => clearTimeout(timeout)
         }
-    }, [messages, chatId, handleAddMessage])
+    }, [messages])
 
-    if (chatId && !messages[chatId]) {
-        return <Navigate replace to="/chats" />
+console.log('messages[chatId] >>> ', messages)
+
+    if (!messages[chatId]) {
+        return <Navigate replace to="/chats" />;
     }
 
     return (
-        <Container ref={parentRef}>
+        <Container>
             <Grid container spacing={2}>
                 <Grid item xs={3}>
-                    <ChatsList chatList={chatList} onDelete={handleDeleteChats} />
+                    <ChatsList />
                 </Grid>
                 <Grid item xs={9}>
-                    {
-                        !chatId
-                            ?
-                            <h2>{TEXT_FIRST_LOAD}</h2>
-                            :
-                            <>
-                                <h3>Список сообщений</h3>
-                                <Messages
-                                    messages={messages[chatId]}
-                                    handleAddMessage={handleAddMessage}
-                                    chatId={chatId}
-                                />
-                            </>
-                    }
+                    <h3>Список сообщений</h3>
+                    <MessagesList
+                        messages={messages[chatId]}
+                    />
+                    <FormAddMessage
+                        onAddMessage={handleAddMessage}
+                        chatId={chatId}
+                    />
                 </Grid>
             </Grid>
         </Container>
