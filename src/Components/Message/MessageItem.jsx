@@ -1,4 +1,11 @@
-import {Avatar, Card, CardContent, Divider, Grid, Typography} from "@mui/material";
+import {
+    Avatar, 
+    Card, 
+    CardContent, 
+    Divider, 
+    Grid, 
+    Typography
+} from "@mui/material";
 
 const MessageItem = ({message}) => {
 

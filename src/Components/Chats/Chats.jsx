@@ -1,7 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import { ChatsList } from "../ChatList/ChatsList";
-import { useCallback, useEffect, useRef } from "react";
-import { ANSWER_BOT, AUTHORS, TEXT_FIRST_LOAD } from "../../data/data";
+import { useCallback, useEffect } from "react";
+import { ANSWER_BOT, AUTHORS } from "../../data/data";
 import { v4 as uuidv4 } from "uuid";
 import { selectorMessages } from '../../store/messages/selectors'
 import { useSelector } from "react-redux";
@@ -42,7 +42,7 @@ const Chats = () => {
         }
     }, [messages])
 
-console.log('messages[chatId] >>> ', messages)
+    // console.log('messages[chatId] >>> ', messages)
 
     if (!messages[chatId]) {
         return <Navigate replace to="/chats" />;
