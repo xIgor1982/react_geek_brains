@@ -3,11 +3,10 @@ import { useState } from "react";
 import ChatListItem from "./ChatListItem";
 import { addChat } from '../../store/chats/actions';
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { selectorChats } from '../../store/chats/selectors'
 import {selectorMessages} from '../../store/messages/selectors'
-import { Container, Grid, TextField } from "@mui/material";
-import { TEXT_FIRST_LOAD } from "../../data/data";
+import { TextField } from "@mui/material";
 
 export const ChatsList = ({ onDelete }) => {
     const chatList = useSelector(selectorChats)
