@@ -1,6 +1,6 @@
 import MessageItem from "./MessageItem";
 
-const MessagesList = ({messages = []}) => {
+const MessagesList = ({messages=[]}) => {
     return (
         <>
             {messages.map(message => (

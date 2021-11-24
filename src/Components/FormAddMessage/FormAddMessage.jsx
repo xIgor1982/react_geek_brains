@@ -1,9 +1,10 @@
-import {Button, TextField} from "@mui/material";
-import {useRef, useState} from "react";
-import {v4 as uuidv4} from "uuid";
-import {AUTHORS} from "../../data/data";
+import { Button, TextField } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { AUTHORS } from "../../data/data";
+import SendIcon from '@mui/icons-material/Send';
 
-const MessageCreate = ({handleSendMessage}) => {
+const FormAddMessage = ({ onAddMessage, chatId }) => {
     const [value, setValue] = useState('')
     const inputRef = useRef()
 
@@ -13,7 +14,7 @@ const MessageCreate = ({handleSendMessage}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleSendMessage({
+        onAddMessage({
             id: uuidv4(),
             text: value,
             author: AUTHORS.user
@@ -24,23 +25,26 @@ const MessageCreate = ({handleSendMessage}) => {
         setValue('')
     }
 
+    useEffect(() => inputRef.current?.focus(), [chatId])
+
     return (
         <form onSubmit={handleSubmit}>
-            <TextField
-                id="standard-basic"
-                fullWidth
-                label="Введите сообщение"
+            <TextField 
+                fullWidth 
+                label="Введите сообщение" 
                 variant="standard"
-                value={value}
+                value={value}                 
                 onChange={handleChange}
                 inputRef={inputRef}
-                sx={{mb: 0.5}}
+                sx={{ mb: 0.5 }}
                 autoFocus={true}
             />
             <Button
-                variant="contained"
+                variant="outlined"
                 type="submit"
-                sx={{mt: 0.5}}
+                sx={{ mt: 0.5 }}
+                endIcon={<SendIcon />}
+                color='inherit'
             >
                 Отправить
             </Button>
@@ -48,4 +52,4 @@ const MessageCreate = ({handleSendMessage}) => {
     )
 }
 
-export default MessageCreate
+export default FormAddMessage
