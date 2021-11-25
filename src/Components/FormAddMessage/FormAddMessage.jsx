@@ -12,6 +12,8 @@ const FormAddMessage = ({ onAddMessage, chatId }) => {
         setValue(event.target.value)
     }
 
+
+    
     const handleSubmit = (event) => {
         event.preventDefault()
         onAddMessage({
