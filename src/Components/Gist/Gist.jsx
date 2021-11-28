@@ -7,22 +7,24 @@ const Gist = () => {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const renderGists = () => {
+    const renderGists = async () => {
         setLoading(true)
-        fetch(API_URL_PUBLIC)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
 
-                return response.json()
-            })
-            .then((result) => setGists(result))
-            .catch((err) => {
-                setError(true)
-                console.log(err)
-            })
-            .finally(() => setLoading(false))
+        try {
+            const response = await fetch(API_URL_PUBLIC)
+
+            if (!response.ok) {
+                throw new Error(`Ошибка запроса данных, статус: ${response.status}`);
+            }
+
+            const result = await response.json()
+            setGists(result)
+        } catch (err) {
+            setError(true)
+            console.warn(err)
+        } finally {
+            setLoading(false)
+        }
     }
 
     useEffect(() => {
@@ -35,7 +37,11 @@ const Gist = () => {
     )
 
     if (loading) {
-        return <CircularProgress />
+        return (
+            <Container>
+                <CircularProgress />
+            </Container>
+        )
     }
 
     if (error) {
