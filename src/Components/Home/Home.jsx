@@ -1,9 +1,9 @@
 import {Container} from "@mui/material";
 import '../../App.css';
-import {useSelector} from "react-redux";
+// import {useSelector} from "react-redux";
 
 export const Home = () => {
-    const name = useSelector(state => state.name)
+    // const name = useSelector(state => state.name)
 
     return (
         <Container>

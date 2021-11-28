@@ -1,24 +1,33 @@
-import {Container} from "@mui/material";
-import {useDispatch, useSelector} from "react-redux";
-// import {store} from '../../store'
-import {toggleCheckbox} from "../../store/profile/action";
+import { Container } from "@mui/material";
+import { useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { toggleCheckbox } from "../../store/profile/action";
+// import { selectName, selectCheckbox } from '../../store/profile/selectors'
 
 export const Profile = () => {
-    // const state = store.getState()
-    // const {checkbox, name} = useSelector(state => state)
-    const checkbox = useSelector(state => state.checkbox)
-    const name = useSelector(state => state.name)
-    const dispatch = useDispatch()
+    const [value, setValue] = useState(false)
+    // const [name, setName] = useState('default name')
+    // const checkbox = useSelector(selectCheckbox)
+    // const name = useSelector(selectName)
+    // const dispatch = useDispatch()
 
-    const handleChange = () => {
-        dispatch(toggleCheckbox)
+    // const handleChange = () => {
+    //     dispatch(toggleCheckbox)
+    // }
+    const handleChange = (e) => {
+        setValue(prev => !prev)
     }
+
+console.log('value >>> ', value)
 
     return (
         <Container>
             <h1>Profile pages</h1>
-            <input type='checkbox' checked={checkbox} onChange={handleChange} />
-            <span> {name}</span>
+            <input type='checkbox' onChange={handleChange} />
+            <form>
+                <input type="text" />
+                <input type="submit" />
+            </form>
         </Container>
     )
 }
