@@ -9,7 +9,7 @@ const ChatListItem = ({ number, chat }) => {
     const dispatch = useDispatch()
 
     const handleDeleteClick = () => {
-        console.log('удалить чат > ', chat.id)
+        // console.log('удалить чат > ', chat.id)
         dispatch(deleteChat(chat.id))
     };
 
