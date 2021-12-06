@@ -8,6 +8,8 @@ import { Profile } from "../Profile/Profile";
 import { ChatsListMain } from '../ChatList/ChatsListMain';
 import Chats from '../Chats/Chats';
 import Gists from '../Gist/Gist';
+import { GistsList } from '../Gist/GistsList';
+import  Articles from '../Articles/Articles'
 
 const MyRoutes = () => {
     return (
@@ -17,7 +19,8 @@ const MyRoutes = () => {
                     <ul className='app-barb-ul-style'>
                         <li><Link to="/" className={'app-link-style'}>Home</Link></li>
                         <li><Link to="/chats" className={'app-link-style'}>Chats</Link></li>
-                        <li><Link to="/gists" className={'app-link-style'}>Gists</Link></li>
+                        <li><Link to="/gists" className={'app-link-style'}>Gists</Link></li>                        
+                        <li><Link to="/articles" className={'app-link-style'}>Articles</Link></li>                        
                         <li><Link to="/profile" className={'app-link-style'}>Profile</Link></li>
 
                     </ul>
@@ -31,6 +34,7 @@ const MyRoutes = () => {
                 </Route>
                 <Route path="profile" element={<Profile />} />
                 <Route path="gists" element={<Gists />} />
+                <Route path="articles" element={<Articles />} />
                 <Route path="*" element={<h3>404</h3>} />
             </Routes>
         </BrowserRouter>

@@ -6,3 +6,8 @@ export const DELETE_CHAT        = 'CHATS::DELETE_CHAT'
 
 export const ADD_MESSAGE        = 'MESSAGES::ADD_MESSAGE'
 export const DELETE_MESSAGE     = 'MESSAGES::DELETE_MESSAGES'
+
+export const GET_GISTS          = 'GISTS::GET_GISTS'
+export const GET_GISTS_REQUEST  = 'GISTS::GET_GISTS_REQUEST'
+export const GET_GISTS_SUCCESS  = 'GISTS::GET_GISTS_SUCCESS'
+export const GET_GISTS_FAILURE  = 'GISTS::GET_GISTS_FAILURE'
