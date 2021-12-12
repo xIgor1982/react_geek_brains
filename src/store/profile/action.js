@@ -1,6 +1,8 @@
-import { 
-    TOGGLE_CHECKBOX, 
-    CHANGE_NAME 
+import {
+    TOGGLE_CHECKBOX,
+    CHANGE_NAME,
+    SIGN_IN,
+    SIGN_OUT
 } from '../typsStore'
 
 export const toggleCheckbox = {
@@ -11,3 +13,11 @@ export const changeName = (name) => ({
     type: CHANGE_NAME,
     payload: name,
   });
+
+export const sigIn = () => ({
+    type: SIGN_IN
+})
+
+export const sigOUT = () => ({
+    type: SIGN_OUT
+})

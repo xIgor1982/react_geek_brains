@@ -1,12 +1,30 @@
 import {Container} from "@mui/material";
 import '../../App.css';
+import Button from '@mui/material/Button';
+import SendAndArchiveIcon from '@mui/icons-material/SendAndArchive';
+import {useDispatch} from "react-redux";
+import {sigIn} from "../../store/profile/action";
 // import {useSelector} from "react-redux";
 
 export const Home = () => {
     // const name = useSelector(state => state.name)
+    const dispatch = useDispatch()
+    const handleClick = () => {
+        dispatch(sigIn())
+    }
 
     return (
         <Container>
+            <Button
+                variant="contained"
+                endIcon={<SendAndArchiveIcon />}
+                onClick={handleClick}
+            >
+                Sign In
+            </Button>
+
+            <hr/>
+
             <h1>Главная страница</h1>
             <h2>Привет <i style={{color:'red'}}>{'Игорь'.toUpperCase()}!</i></h2>
             <h2>Оказывается, выбранный нами инновационный путь попахивает безумием</h2>
